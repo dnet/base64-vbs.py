@@ -66,8 +66,9 @@ def compress_vbs(lines):
 			symbol, value = line[6:].split('=')
 			symbols[symbol.strip()] = value.strip()
 	yield 'Dim ' + ','.join(dims)
+	to_ignore = ("'", 'Dim ', 'Const ')
 	for line in lines:
-		if line == '' or line.startswith("'") or line.startswith('Dim ') or line.startswith('Const '):
+		if line == '' or any(line.startswith(i) for i in to_ignore):
 			continue
 		for symbol, value in symbols.iteritems():
 			line = line.replace(symbol, value)

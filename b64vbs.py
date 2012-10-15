@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #
 # bas64.py - converts EXE (or other binary) files to VBS scripts
 #
